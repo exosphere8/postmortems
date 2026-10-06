@@ -11,6 +11,8 @@ detours, so that is where the lessons are.
 |---|---|---|
 | 19 Sep 2026 | [The numpy version was never the problem](numpy-was-never-the-problem.md) | Three crashes, three wrong hypotheses, and a clue I ignored for an hour. |
 | 20 Sep 2026 | [The penalty I was terrified of cost me 0.45%](the-penalty-that-cost-0.45-percent.md) | Reasoning from a formula, with a number I'd invented. |
+| 6 Oct 2026 | [The partial crawl that hid a price drop](the-partial-crawl-that-hid-a-price-drop.md) | [BookWatch](https://github.com/exosphere8/bookwatch): "compare with the previous run" destroyed the change it was meant to report. |
+| 6 Oct 2026 | [Wazuh only remembers the last rule](wazuh-only-remembers-the-last-rule.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): a brute-force rule that could never count attacks on root. |
 
 ## How each post is written
 
