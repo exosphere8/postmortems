@@ -2,7 +2,8 @@
 
 *From my [SIEM home lab](https://github.com/exosphere8/siem-home-lab). Unlike the other posts,
 this one is written **before** the change: the upgrade has not happened yet. It lists what I
-expect to go wrong, so I can check each item when it does.*
+expect to go wrong, so I can check each item when it does. A same-day update at the end
+records what porting the rules to Wazuh 5 confirmed.*
 
 ---
 
@@ -146,6 +147,42 @@ In [siem-home-lab](https://github.com/exosphere8/siem-home-lab):
   T". The answer to that last one decides whether the stateful rules become 5.x rules or move
   into `siemlab`.
 
+## Update, later the same day: porting the rules
+
+I didn't wait for 5.0 to ship. I ported every detection to the Wazuh 5 format
+([`detections/wazuh5`](https://github.com/exosphere8/siem-home-lab/tree/main/detections/wazuh5))
+and changed `siemlab` to match. Wazuh's own
+[4.x-to-5.x rule migration guide](https://github.com/wazuh/wazuh/blob/v5.0.0-rc1/docs/guide/migration/rules-4x-to-5x.md)
+answered most of my open questions. Nothing has run on a 5.x indexer yet, so this is still
+desk work, but these predictions now have answers:
+
+| # | Prediction | What the port showed |
+|---|---|---|
+| 7 | None of the 33 rules port directly | **Confirmed.** The guide lists rule chaining and correlation as "not supported", and 5.0 ships no correlation rules. 28 rules were rewritten as self-contained rules. The 4 counting rules became `siemlab` correlations, and 100505 was dropped (see 9). |
+| 8 | The Sigma rules aren't really portable | **Confirmed.** I started again from the XML rules instead. Fields had to be WCS fields, and `logsource.product` is not a description: it must be the title of the rule's integration, or the API rejects the rule. |
+| 9 | The counting lesson may flip | **Confirmed.** Every matching rule writes its own finding, so a failed root login produces two. `siemlab` now merges findings that share an event ID before it counts. Rule 100505 only existed to work around the old "deepest rule wins" behaviour, so it is gone. |
+| 10 | Detector intervals change timing | **Open.** Detectors run on a schedule, and the counting now runs in `siemlab` over exported findings, in batches. The delay still has to be measured on a live indexer. |
+| 11 | The tooling breaks | **Fixed.** `siemlab` reads findings, validates the pack against the schema, and deploys it through the Content Manager API. It promotes to production only if every logtest case matches. |
+| 12 | Endpoints are half-supported | **Still true.** FIM can only be validated after the agents are upgraded. |
+| 13 | It doesn't fit on the laptop | **Planned around.** There is a second server VM role and a Linux-only `Migration` session profile. |
+| 14 | Release-candidate documentation | **Still true.** Every rule is marked `experimental`. |
+
+Three things I didn't predict:
+
+- **The guide's raw-text fallback may not match.** For text a decoder doesn't extract, the
+  migration guide suggests matching on `event.original`. But the schema stores that field
+  without indexing it, so a detector may never match on it. That is exactly the "accepted but
+  not doing what I meant" problem from my last post. The rules use the indexed `message`
+  field instead, and the validator warns on any unindexed field.
+- **Custom rules can't attach to Wazuh's built-in integrations.** They need integrations of
+  their own, even though the events are still decoded by Wazuh's built-in decoders. A rule
+  that names a field the built-in decoder doesn't fill would still pass validation, so each
+  integration ships logtest cases that go through the real decoders.
+- **The migration needed a test of its own.** I converted the synthetic 4.x alerts into the
+  findings the 5.x rules would write, and checked that correlation finds the same seven
+  incidents. It does, and CI keeps it that way. That proves my mapping is consistent. It does
+  not prove Wazuh's decoders agree with it; only the logtest cases on a real indexer will.
+
 ## What I'd take from this
 
 - **An upgrade changes the detection logic, so test it like a change to the rules.** "The
@@ -153,5 +190,8 @@ In [siem-home-lab](https://github.com/exosphere8/siem-home-lab):
 - **Pin what the rules depend on.** "The current version" means something different every
   month.
 - **Read the release notes for the platform's model, not just its features.** "One alert per
-  event" and "findings per policy" shape every count I write. They appear in the docs as a
+  event" and "one finding per match" shape every count I write. They appear in the docs as a
   sentence each.
+- **When a migration can't be run yet, give it a test anyway.** The same input should tell
+  the same story on both sides. That check is cheap, and it turns "I think the port is right"
+  into something CI holds me to.
