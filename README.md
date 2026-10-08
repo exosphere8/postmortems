@@ -17,6 +17,7 @@ detours, so that is where the lessons are.
 | 9 Oct 2026 | [Saved is not applied](saved-is-not-applied.md) | [BlockThem](https://github.com/exosphere8/BlockThem): the popup waited for storage instead of the rules, so the reload could miss the pause for good. |
 | 9 Oct 2026 | [Two definitions of "this site"](two-definitions-of-this-site.md) | [BlockThem](https://github.com/exosphere8/BlockThem): the popup and the network rule disagreed about subdomains, so Resume couldn't resume. |
 | 9 Oct 2026 | [The catch block that always caught](the-catch-that-always-caught.md) | [BlockThem](https://github.com/exosphere8/BlockThem): a try/catch whose fallback was the whole program, so paused sites still hid ad slots inside their iframes. |
+| 9 Oct 2026 | [I blocked Hotjar on hotjar.com](i-blocked-hotjar-on-hotjar.md) | [BlockThem](https://github.com/exosphere8/BlockThem): a tracker blocklist that would have broken the trackers' own dashboards, and an obvious fix with a quiet catch. |
 
 ## How each post is written
 
