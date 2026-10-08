@@ -16,6 +16,7 @@ detours, so that is where the lessons are.
 | 7 Oct 2026 | [Pre-mortem: upgrading the lab's Wazuh](premortem-upgrading-wazuh.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): what a Wazuh upgrade is expected to break, written before it happens, with a same-day update after porting the rules to Wazuh 5. |
 | 9 Oct 2026 | [Saved is not applied](saved-is-not-applied.md) | [BlockThem](https://github.com/exosphere8/BlockThem): the popup waited for storage instead of the rules, so the reload could miss the pause for good. |
 | 9 Oct 2026 | [Two definitions of "this site"](two-definitions-of-this-site.md) | [BlockThem](https://github.com/exosphere8/BlockThem): the popup and the network rule disagreed about subdomains, so Resume couldn't resume. |
+| 9 Oct 2026 | [The catch block that always caught](the-catch-that-always-caught.md) | [BlockThem](https://github.com/exosphere8/BlockThem): a try/catch whose fallback was the whole program, so paused sites still hid ad slots inside their iframes. |
 
 ## How each post is written
 
