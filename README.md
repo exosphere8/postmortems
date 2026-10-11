@@ -19,6 +19,11 @@ detours, so that is where the lessons are.
 | 9 Oct 2026 | [The catch block that always caught](the-catch-that-always-caught.md) | [BlockThem](https://github.com/exosphere8/BlockThem): a try/catch whose fallback was the whole program, so paused sites still hid ad slots inside their iframes. |
 | 9 Oct 2026 | [I blocked Hotjar on hotjar.com](i-blocked-hotjar-on-hotjar.md) | [BlockThem](https://github.com/exosphere8/BlockThem): a tracker blocklist that would have broken the trackers' own dashboards, and an obvious fix with a quiet catch. |
 | 9 Oct 2026 | [Six of my ten bug reports were wrong](six-of-ten-bug-reports-were-wrong.md) | [BlockThem](https://github.com/exosphere8/BlockThem): a pre-release review found ten bugs, and a second pass told to refute them killed six. |
+| 11 Oct 2026 | [Counting a group counted everything twice](counting-a-group-counted-everything-twice.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): my published fix fired on the 2nd failure of 6. A correction. |
+| 11 Oct 2026 | [The rule linked before its sibling existed](the-rule-linked-before-its-sibling-existed.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): root-only brute force went uncounted because of line order. |
+| 11 Oct 2026 | [The built-in rule got there first](the-built-in-rule-got-there-first.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): a level-0 rule I'd never read made a scanner vanish. |
+| 11 Oct 2026 | [My Windows rules were fine; my test was not](my-windows-rules-were-fine-my-test-was-not.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): seven failing tests that could never reach the code. |
+| 11 Oct 2026 | [The file I could not ship](the-file-i-could-not-ship.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): an AGPL-derived file, and packaging a project to sell. |
 
 ## How each post is written
 

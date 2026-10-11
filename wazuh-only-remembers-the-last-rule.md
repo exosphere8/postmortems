@@ -4,6 +4,10 @@
 which a brute-force rule was written so that it could never count attacks on the account
 attackers try most.*
 
+> **Correction (11 Oct 2026):** the fix below, counting a shared group, was wrong. On a real
+> manager it counted each failure several times. See
+> [Counting a group counted everything twice](counting-a-group-counted-everything-twice.md).
+
 ---
 
 ## The setup
