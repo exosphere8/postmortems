@@ -25,6 +25,7 @@ detours, so that is where the lessons are.
 | 11 Oct 2026 | [My Windows rules were fine; my test was not](my-windows-rules-were-fine-my-test-was-not.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): seven failing tests that could never reach the code. |
 | 11 Oct 2026 | [The file I could not ship](the-file-i-could-not-ship.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): an AGPL-derived file, and packaging a project to sell. |
 | 12 Oct 2026 | [The plot that mixed degrees and radians](the-plot-that-mixed-degrees-and-radians.md) | [Balancing sculpture](https://github.com/exosphere8/balancing-sculpture): the physics was right on the first run; every detour was at a boundary. |
+| 13 Oct 2026 | [Pre-mortem: building my first project in Docker and K8s](premortem-building-in-docker-and-k8s.md) | What I expect to break before I containerise a project, written first so I can check it later. |
 
 ## How each post is written
 
