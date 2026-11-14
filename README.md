@@ -26,6 +26,12 @@ detours, so that is where the lessons are.
 | 11 Oct 2026 | [The file I could not ship](the-file-i-could-not-ship.md) | [SIEM home lab](https://github.com/exosphere8/siem-home-lab): an AGPL-derived file, and packaging a project to sell. |
 | 12 Oct 2026 | [The plot that mixed degrees and radians](the-plot-that-mixed-degrees-and-radians.md) | [Balancing sculpture](https://github.com/exosphere8/balancing-sculpture): the physics was right on the first run; every detour was at a boundary. |
 | 13 Oct 2026 | [Pre-mortem: building my first project in Docker and K8s](premortem-building-in-docker-and-k8s.md) | What I expect to break before I containerise a project, written first so I can check it later. |
+| 14 Nov 2026 | [pip freeze put pytest in my image](pip-freeze-put-pytest-in-my-image.md) | [KhanalChess](https://github.com/exosphere8/KhanalChess): a requirements file that mixed runtime and dev tools, and sorting it with `pip show` instead of guesses. |
+| 14 Nov 2026 | [A rule counts once I have seen it block](a-rule-counts-once-i-have-seen-it-block.md) | [KhanalChess](https://github.com/exosphere8/KhanalChess): two throwaway PRs, a failing test and an unused import, to prove the required checks really grey out the merge button. |
+| 14 Nov 2026 | ["Done" is not evidence](done-is-not-evidence.md) | [KhanalChess](https://github.com/exosphere8/KhanalChess): answers of "passes" with no output, a wrong filename and branch name, and the same failing command run three times. |
+| 14 Nov 2026 | [The six spaces I could not see](the-six-spaces-i-could-not-see.md) | [KhanalChess](https://github.com/exosphere8/KhanalChess): an editor that auto-indented the last line of `ci.yml`, a missing final newline, and a first edit that was never saved. |
+| 15 Nov 2026 | [Green is not the same as seen](green-is-not-the-same-as-seen.md) | [KhanalChess](https://github.com/exosphere8/KhanalChess): six PRs merged on an enabled button before I had looked at the checks. |
+| 15 Nov 2026 | [Pre-mortem: my first CD pipeline to Render](premortem-first-cd-pipeline-to-render.md) | [KhanalChess](https://github.com/exosphere8/KhanalChess): what I expect to break before any deploy code exists (a sleeping service, an expiring database, the card check), written first so I can check it later. |
 
 ## How each post is written
 
